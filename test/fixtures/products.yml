@@ -2,6 +2,10 @@
 
 one:
   name: MyString
+  img_url: MyString
+  hair_type: one
 
 two:
   name: MyString
+  img_url: MyString
+  hair_type: two

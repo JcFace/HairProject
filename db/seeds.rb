@@ -8,34 +8,24 @@
 
 require 'faker'
 
-HairTypeProduct.delete_all
 Product.delete_all
 HairType.delete_all
 
-HairType.create(name: "Straight")
-HairType.create(name: "Curved")
-HairType.create(name: "Curvy")
-HairType.create(name: "Wavy")
-HairType.create(name: "Curled")
-HairType.create(name: "Curly")
-HairType.create(name: "Very Curly")
-HairType.create(name: "Tight Curls")
-HairType.create(name: "Kinky")
-HairType.create(name: "Coiled")
+HairType.create(name: "Straight", img_url: "https://www.sheamoisture.com/on/demandware.static/-/Sites-shm-us-Library/default/dwde5ddb07/images/Landing/hair-type/ModelHairChart-01.jpg")
+HairType.create(name: "Wavy", img_url: "https://www.sheamoisture.com/on/demandware.static/-/Sites-shm-ca-Library/default/dw662002ca/images/Landing/hair-type/ModelHairChart-02.jpg")
+HairType.create(name: "Curly", img_url: "https://www.sheamoisture.com/on/demandware.static/-/Sites-shm-ca-Library/default/dw82f550c0/images/Landing/hair-type/ModelHairChart-03.jpg")
+HairType.create(name: "Kinky", img_url: "https://www.sheamoisture.com/on/demandware.static/-/Sites-shm-ca-Library/default/dw781de5d3/images/Landing/hair-type/ModelHairChart-04.jpg")
 
 30.times do
-    Product.create(name: Faker::Space.star_cluster + " Shampoo")
+    Product.create(name: Faker::Space.star_cluster + " Shampoo", img_url: Faker::Avatar.image, description: Faker::Books::Lovecraft.paragraph, hair_type_id: HairType.all.sample.id)
 end
 
 30.times do
-    Product.create(name: Faker::Space.constellation + " Leave-in")
+    Product.create(name: Faker::Space.constellation + " Leave-in", img_url: Faker::Avatar.image, description: Faker::Hipster.paragraph(sentence_count: 2, supplemental: true), hair_type_id: HairType.all.sample.id)
 end
 
 30.times do
-    Product.create(name: Faker::Space.star + " Conditioner")
+    Product.create(name: Faker::Space.star + " Conditioner", img_url: Faker::Avatar.image, description: Faker::Hipster.paragraph(sentence_count: 2), hair_type_id: HairType.all.sample.id)
 end
 
-90.times do
-    HairTypeProduct.create(hair_type_id: HairType.all.sample.id, product_id: Product.all.sample.id)
-end
 
